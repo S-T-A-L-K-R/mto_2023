@@ -4,14 +4,23 @@ import sys
 
 def my_printf(format_string, param):
     #print(format_string)
+    # print(param)
     shouldDo = True
     for i in range(0, len(format_string)):
         if shouldDo:
-            if format_string[input()] == '#' and format_string[i+1] == 'k':
-                print(param, end="")
+            if format_string[i] == '#' and format_string[i+1] == 'k':
+                for j in range(0, len(param)):
+                    if param[j].islower():
+                        print(param[j].upper(), end="")
+                    else:
+                        print(param[j].lower(), end="")
+                # print(param, end="")
                 shouldDo=False
             else:
-                print(format_string[i], end="")
+                if format_string[i].islower():
+                    print(format_string[i].upper(), end="")
+                else:
+                    print(format_string[i].lower(), end="")
         else:
             shouldDo=True
     print("")
