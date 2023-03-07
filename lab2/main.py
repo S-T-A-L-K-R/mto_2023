@@ -5,7 +5,7 @@ import sys
 def my_printf(format_string, param):
     #print(format_string)
     shouldDo = True
-    for i in range(0,len(format_string)):
+    for i in range(0, len(format_string)):
         if shouldDo:
             if format_string[input()] == '#' and format_string[i+1] == 'k':
                 print(param, end="")
