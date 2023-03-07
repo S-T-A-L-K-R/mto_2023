@@ -6,9 +6,26 @@ def my_printf(format_string, param):
     #print(format_string)
     # print(param)
     shouldDo = True
+    flag = True
     for i in range(0, len(format_string)):
         if shouldDo:
-            if format_string[i] == '#' and format_string[i+1] == 'k':
+            # if format_string[i] == '#' and format_string[i+1] == 'k':
+            if format_string[i] == '#':
+                k = 1
+                param_min_size = 0
+                while(True):
+                    if format_string[i+k].isnumeric():
+                        param_min_size = param_min_size * 10 + int(format_string[i+k])
+                        k+=1
+                    elif format_string[i+k] == "k":
+                        break
+                    else:
+                        flag = False
+                        break
+                if flag == True:
+                    pass
+                else:
+                    pass
                 for j in range(0, len(param)):
                     if param[j].islower():
                         print(param[j].upper(), end="")
