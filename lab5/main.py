@@ -21,7 +21,7 @@ def my_printf(format_string, param):
             # if format_string[i] == '#' and format_string[i+1] == 'g':
             if format_string[i] == '#':
                 g = format_string.find("g", i)
-                if g > i + 1:
+                if g > (i + 1):
                     x = int(format_string[i+1 : g])
                     param = modify_param(param)
                     if x > len(param):
