@@ -27,8 +27,10 @@ def my_printf(format_string, param):
                     if x > len(param):
                         print(" " * (x - len(param)), end="")
                     g_index = g + 1
-                print(param, end="")
-                shouldDo = False
+                    print(param, end="")
+                    shouldDo = False
+                else:
+                    print(format_string[i],end="")
             else:
                 print(format_string[i],end="")
         else:
