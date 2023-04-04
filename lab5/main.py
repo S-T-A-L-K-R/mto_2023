@@ -20,18 +20,12 @@ def my_printf(format_string, param):
             # if format_string[i] == '#' and format_string[i+1] == 'g':
             if format_string[i] == '#':
                 g_index = format_string.find("g", i)
-                # print("param ", type(param))
-                # print("g_index ", g_index)
-                # print("i ", i)
-                if g_index > i:
-                    # x = int(param[i:g_index])
+                if g_index > i + 1:
                     x = int(format_string[i+1 : g_index])
-                    # print("x ", x)
-                    # x = int(x)
                     param = modify_param(param)
                     if x > len(param):
-                        print(" " * (x - len(param)))
-                    i = g_index
+                        print(" " * (x - len(param)), end="")
+                    i = g_index + 1
                 print(param, end="")
                 shouldDo = False
             else:
