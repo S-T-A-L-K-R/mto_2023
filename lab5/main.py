@@ -22,13 +22,17 @@ def my_printf(format_string, param):
             if format_string[i] == '#':
                 g = format_string.find("g", i)
                 if g > (i + 1):
-                    x = int(format_string[i+1 : g])
-                    param = modify_param(param)
-                    if x > len(param):
-                        print(" " * (x - len(param)), end="")
-                    g_index = g + 1
-                    print(param, end="")
-                    shouldDo = False
+                    x = format_string[i+1 : g]
+                    if x.isdigit():
+                        x = int(x)
+                        param = modify_param(param)
+                        if x > len(param):
+                            print(" " * (x - len(param)), end="")
+                        g_index = g + 1
+                        print(param, end="")
+                        shouldDo = False
+                    else:
+                        print(format_string[i],end="")
                 else:
                     print(format_string[i],end="")
             else:
