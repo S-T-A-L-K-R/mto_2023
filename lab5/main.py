@@ -9,8 +9,8 @@ def modify_param(param):
         if a <= 0:
             a = 10
         a -= 1
-        retval.append(str(a))
-    return param
+        retval += str(a)
+    return retval
 
 def my_printf(format_string, param):
     #print(format_string)
@@ -20,11 +20,18 @@ def my_printf(format_string, param):
             # if format_string[i] == '#' and format_string[i+1] == 'g':
             if format_string[i] == '#':
                 g_index = format_string.find("g", i)
+                # print("param ", type(param))
+                # print("g_index ", g_index)
+                # print("i ", i)
                 if g_index > i:
-                    x = int(param[i:g_index])
+                    # x = int(param[i:g_index])
+                    x = int(format_string[i+1 : g_index])
+                    # print("x ", x)
+                    # x = int(x)
                     param = modify_param(param)
                     if x > len(param):
                         print(" " * (x - len(param)))
+                    i = g_index
                 print(param, end="")
                 shouldDo = False
             else:
