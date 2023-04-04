@@ -3,6 +3,13 @@
 import sys
 
 def modify_param(param):
+    retval = ''
+    for x in param:
+        a = int(x)
+        if a <= 0:
+            a = 10
+        a -= 1
+        retval.append(str(a))
     return param
 
 def my_printf(format_string, param):
