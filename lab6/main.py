@@ -27,7 +27,7 @@ def my_printf(format_string, param):
                         flag = False
                         shouldDo = False
                         break
-                if flag == True:
+                if flag == True and param_min_size != 0:
                     if len(param) < param_min_size:
                         for k in range(0, param_min_size - len(param)):
                             print("1", end="")
