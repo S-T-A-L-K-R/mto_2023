@@ -3,7 +3,7 @@
 import sys
 
 def modify_number(a):
-    return (int(a) * 9 + 1) % 10
+    return str(((int(a) * 9) + 1) % 10)
 
 def my_printf(format_string, param):
     #print(format_string)
@@ -15,32 +15,7 @@ def my_printf(format_string, param):
     for i in range(0, len(format_string)):
         if skip == 0:
             if format_string[i] == '#' and format_string[i+1] == '.':
-                param_len = 1
-                while(True):
-                    if format_string[i+1+param_len].isnumeric():
-                        param_min_size = param_min_size * 10 + int(format_string[i+1+param_len])
-                        param_len+=1
-                    elif format_string[i+1+param_len] == "k":
-                        flag = True
-                        break
-                    else:
-                        flag = False
-                        shouldDo = False
-                        break
-                if flag == True:
-                    if len(param) < param_min_size:
-                        for j in range(0, len(param)):
-                            print(modify_number(param[j]))
-                    else:
-                        for j in range(0, param_min_size):
-                            print(modify_number(param[j]))
-                    # print(param, end="")
-                    skip = param_len + 1
-                else:
-                    print(format_string[i],end="")
-            
-            elif format_string[i] == '#':
-                param_len = 1
+                param_len = 2
                 while(True):
                     if format_string[i+param_len].isnumeric():
                         param_min_size = param_min_size * 10 + int(format_string[i+param_len])
@@ -55,13 +30,13 @@ def my_printf(format_string, param):
                 if flag == True:
                     if len(param) < param_min_size:
                         for k in range(0, param_min_size - len(param)):
-                            print(" ", end="")
+                            print("1", end="")
                     for j in range(0, len(param)):
-                        print(modify_number(param[j]))
+                        print(modify_number(param[j]), end="")
                     # print(param, end="")
                     skip = param_len
                 else:
-                    print(format_string[i],end="")
+                    print(format_string[i], end="")
             else:
                 print(format_string[i], end="")
         else:
