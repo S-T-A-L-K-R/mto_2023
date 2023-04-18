@@ -3,7 +3,7 @@
 import sys
 
 def modify_number(a):
-    return (a * 9 + 1) % 10
+    return (int(a) * 9 + 1) % 10
 
 def my_printf(format_string, param):
     #print(format_string)
@@ -30,16 +30,10 @@ def my_printf(format_string, param):
                 if flag == True:
                     if len(param) < param_min_size:
                         for j in range(0, len(param)):
-                            if param[j].islower():
-                                print(param[j].upper(), end="")
-                            else:
-                                print(param[j].lower(), end="")
+                            print(modify_number(param[j]))
                     else:
                         for j in range(0, param_min_size):
-                            if param[j].islower():
-                                print(param[j].upper(), end="")
-                            else:
-                                print(param[j].lower(), end="")
+                            print(modify_number(param[j]))
                     # print(param, end="")
                     skip = param_len + 1
                 else:
@@ -51,7 +45,7 @@ def my_printf(format_string, param):
                     if format_string[i+param_len].isnumeric():
                         param_min_size = param_min_size * 10 + int(format_string[i+param_len])
                         param_len+=1
-                    elif format_string[i+param_len] == "k":
+                    elif format_string[i+param_len] == "g":
                         flag = True
                         break
                     else:
@@ -63,19 +57,13 @@ def my_printf(format_string, param):
                         for k in range(0, param_min_size - len(param)):
                             print(" ", end="")
                     for j in range(0, len(param)):
-                        if param[j].islower():
-                            print(param[j].upper(), end="")
-                        else:
-                            print(param[j].lower(), end="")
+                        print(modify_number(param[j]))
                     # print(param, end="")
                     skip = param_len
                 else:
                     print(format_string[i],end="")
             else:
-                if format_string[i].islower():
-                    print(format_string[i].upper(), end="")
-                else:
-                    print(format_string[i].lower(), end="")
+                print(format_string[i], end="")
         else:
             skip -= 1
     print("")
