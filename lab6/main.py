@@ -2,15 +2,8 @@
 
 import sys
 
-def modify_param(param):
-    retval = ''
-    for x in param:
-        a = int(x)
-        if a <= 0:
-            a = 10
-        a -= 1
-        retval += str(a)
-    return retval
+def modify_number(a):
+    return (a * 9 + 1) % 10
 
 def my_printf(format_string, param):
     #print(format_string)
