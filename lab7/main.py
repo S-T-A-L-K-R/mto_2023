@@ -2,13 +2,23 @@
 
 import sys
 
+def modify_param(param):
+    retval = ''
+    for x in param:
+        a = int(x)
+        if a <= 0:
+            a = 10
+        a -= 1
+        retval += str(a)
+    return retval
+
 def my_printf(format_string, param):
     #print(format_string)
     shouldDo = True
     for i in range(0, len(format_string)):
         if shouldDo:
-            if format_string[i] == '#' and format_string[i+1] == 'g':
-                param = str(param)[::-1]
+            if format_string[i] == '#' and format_string[i+1] == 'j':
+                # param = str(param)[::-1]
                 print(param, end="")
                 shouldDo = False
             else:
