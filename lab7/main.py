@@ -3,13 +3,7 @@
 import sys
 
 def modify_param(param):
-    retval = ''
-    for x in param:
-        a = int(x)
-        if a <= 0:
-            a = 10
-        a -= 1
-        retval += str(a)
+    retval = str(hex(int(param)))
     return retval
 
 def my_printf(format_string, param):
@@ -18,7 +12,7 @@ def my_printf(format_string, param):
     for i in range(0, len(format_string)):
         if shouldDo:
             if format_string[i] == '#' and format_string[i+1] == 'j':
-                # param = str(param)[::-1]
+                param = modify_param(param)
                 print(param, end="")
                 shouldDo = False
             else:
