@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 
 import sys
+table_one = ['a', 'b', 'c', 'd', 'e', 'f']
+table_two = ['g', 'h', 'i', 'j', 'k', 'l']
 
 def modify_param(param):
-    retval = str(hex(int(param)))
+    retval = ''
+    param = str(hex(int(param)))[2:]
+    for x in param:
+        if x in table_one:
+            retval += table_two[table_one.index(x, 0)]
+        else:
+            retval += x
     return retval
 
 def my_printf(format_string, param):
