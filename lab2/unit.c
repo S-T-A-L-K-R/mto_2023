@@ -18,9 +18,14 @@ int main(int argc, char *argv[]){
 	if(answers && output){
 		while(fgets(answers_line, 1024, answers) && fgets(output_line, 1024, output))
 		{
+			
 			if(!strcmp(answers_line, output_line))
 			{
 				ans++;
+			}
+			else
+			{
+				printf("%2s%2s\n", answers_line, output_line);
 			}
 			total++;
 		}
