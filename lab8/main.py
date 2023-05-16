@@ -17,12 +17,25 @@ def modify_param(param):
 def my_printf(format_string, param):
     #print(format_string)
     shouldDo = True
+    j_index = 0
     for i in range(0, len(format_string)):
-        if shouldDo:
-            if format_string[i] == '#' and format_string[i+1] == 'j':
-                param = modify_param(param)
-                print(param, end="")
-                shouldDo = False
+        if shouldDo and i >= j_index:
+            if format_string[i] == '#':
+                j = format_string.find("j", i)
+                if j > (i + 1):
+                    x = format_string[i+1 : j]
+                    if x.isdigit():
+                        x = int(x)
+                        param = modify_param(param)
+                        if x > len(param):
+                            print(" " * (x - len(param)), end="")
+                        j_index = j + 1
+                        print(param, end="")
+                        shouldDo = False
+                    else:
+                        print(format_string[i],end="")
+                else:
+                    print(format_string[i],end="")
             else:
                 print(format_string[i],end="")
         else:
