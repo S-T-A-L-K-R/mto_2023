@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import sys
-table_one = ['a', 'b', 'c', 'd', 'e', 'f']
-table_two = ['g', 'h', 'i', 'j', 'k', 'l']
+table_one = ['a', 'b', 'c', 'd', 'e', 'f', '0']
+table_two = ['g', 'h', 'i', 'j', 'k', 'l', 'o']
 
 def modify_param(param):
     retval = ''
