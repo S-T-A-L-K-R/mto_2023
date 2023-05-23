@@ -36,7 +36,7 @@ def my_printf(format_string, param):
                     if format_string[i+param_len].isnumeric():
                         param_min_size = param_min_size * 10 + int(format_string[i+param_len])
                         param_len+=1
-                    elif format_string[i+param_len] == "g":
+                    elif format_string[i+param_len] == "h":
                         flag = True
                         break
                     else:
@@ -44,11 +44,7 @@ def my_printf(format_string, param):
                         shouldDo = False
                         break
                 if flag == True and param_min_size != 0:
-                    if len(param) < param_min_size:
-                        for k in range(0, param_min_size - len(param)):
-                            print("1", end="")
-                    for j in range(0, len(param)):
-                        print(modify_number(param[j], size), end="")
+                    print(modify_number(param, param_min_size), end="")
                     # print(param, end="")
                     skip = param_len
                 else:
