@@ -10,11 +10,13 @@ def modify_number(a, size):
     dot = a.find(".")
     a = a[0:i+size]
     
+    retval = ''
     for i in range(0, dot):
-        
+        retval += table_two[table_one.index(i, 0)]
         pass
     
     for i in range(dot, len(a)):
+        retval += str((int(a[i]) + 5) % 10)
         pass
     
     return float(retval)
