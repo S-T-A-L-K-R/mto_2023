@@ -2,10 +2,21 @@
 
 import sys
 
+table_one = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+table_two = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
 def modify_number(a, size):
     a = str(a)
-    i = a.find(".")
-    retval = a[0:i+size]
+    dot = a.find(".")
+    a = a[0:i+size]
+    
+    for i in range(0, dot):
+        
+        pass
+    
+    for i in range(dot, len(a)):
+        pass
+    
     return float(retval)
     
 def my_printf(format_string, param):
