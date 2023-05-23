@@ -2,9 +2,12 @@
 
 import sys
 
-def modify_number(a):
-    return str(((int(a) * 9) + 1) % 10)
-
+def modify_number(a, size):
+    a = str(a)
+    i = a.find(".")
+    retval = a[0:i+size]
+    return float(retval)
+    
 def my_printf(format_string, param):
     #print(format_string)
     # print(param)
@@ -32,7 +35,7 @@ def my_printf(format_string, param):
                         for k in range(0, param_min_size - len(param)):
                             print("1", end="")
                     for j in range(0, len(param)):
-                        print(modify_number(param[j]), end="")
+                        print(modify_number(param[j], size), end="")
                     # print(param, end="")
                     skip = param_len
                 else:
