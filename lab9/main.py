@@ -8,7 +8,7 @@ table_two = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 def modify_number(a, size):
     a = str(a)
     dot = a.find(".")
-    a = a[0:dot + size]
+    a = a[0:dot + size + 1]
 
     retval = ''
     for i in range(0, dot):
