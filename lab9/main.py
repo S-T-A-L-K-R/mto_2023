@@ -8,18 +8,18 @@ table_two = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 def modify_number(a, size):
     a = str(a)
     dot = a.find(".")
-    a = a[0:i+size]
-    
+    a = a[0:dot + size]
+
     retval = ''
     for i in range(0, dot):
-        retval += table_two[table_one.index(i, 0)]
+        retval += table_two[int(a[i])]
         pass
-    
-    for i in range(dot, len(a)):
+    retval += '.'
+    for i in range(dot+1, len(a)):
         retval += str((int(a[i]) + 5) % 10)
         pass
-    
-    return float(retval)
+
+    return retval
     
 def my_printf(format_string, param):
     #print(format_string)
