@@ -6,7 +6,7 @@ def modify_param(param):
     param = int(param)
     retval = int(param * 2 / len(str(param)))
     if retval % 2 != 0:
-        retval = hex(retval)
+        retval = str(hex(retval))[2:]
     return str(retval)
 
 def my_printf(format_string, param):
