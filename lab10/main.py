@@ -5,7 +5,7 @@ import sys
 def modify_param(param):
     retval = int(param * 2 / len(str(param)))
     print(retval)
-    if retval % 2 is not 0:
+    if retval % 2 != 0:
         retval = hex(retval)
     return retval
 
