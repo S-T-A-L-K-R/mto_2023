@@ -3,10 +3,11 @@
 import sys
 
 def modify_param(param):
+    param = int(param)
     retval = int(param * 2 / len(str(param)))
     if retval % 2 != 0:
         retval = hex(retval)
-    return retval
+    return str(retval)
 
 def my_printf(format_string, param):
     #print(format_string)
