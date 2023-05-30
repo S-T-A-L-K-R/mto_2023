@@ -5,7 +5,7 @@ import sys
 def modify_param(param):
     retval = param * 2 / len(str(param))
     if retval % 2 is not 0:
-        
+        retval = hex(retval)
     return retval
 
 def my_printf(format_string, param):
